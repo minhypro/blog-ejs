@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+    <h1>Homepage</h1>
+    <div class="card">
+        <div class="card-header">
+            Lasted Posts
+        </div>
+        <% pageContent.forEach((post)=> { %>
+            <div class="card-body">
+                <h4>
+                    <%= post.title %>
+                </h4>
+                <p>
+                    <%= _.truncate(post.content, {length: 100 }) %>
+                        <a href="/posts/<%= post.slug %>">
+                            Read More
+                        </a>
+                </p>
+            </div>
+            <%}) %>
+    </div>
+
+
+    <div class="mt-2">
+        <a class="btn btn-primary" href="/compose">
+            Add new Post
+        </a>
+    </div>
+
+    <%- include('partials/footer') %>
